@@ -13,7 +13,9 @@ class CountriesViewModel : ViewModel() {
     fun fetchCountries() {
         viewModelScope.launch {
             val countries = CountriesAPIRetrofit.countriesService.getCountries()
-                .map { it.name.official }
+                .map {
+                    "${it.name.common}:::${it.flags.png}"
+                }
             countriesData.postValue(countries)
         }
     }
