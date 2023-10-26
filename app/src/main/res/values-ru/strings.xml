@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">с апишкой</string>
+    <string name="example">пример</string>
+    <string name="flag">Флаг страны</string>
+</resources>
