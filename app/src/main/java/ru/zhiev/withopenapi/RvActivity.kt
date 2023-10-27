@@ -16,9 +16,9 @@ class RvActivity : AppCompatActivity() {
         setContentView(R.layout.activity_rv)
 
         countriesViewModel.fetchCountries()
+        val recyclerView: RecyclerView = findViewById(R.id.recyclerViewAPI)
 
         countriesViewModel.countriesData.observe(this) { data ->
-            val recyclerView: RecyclerView = findViewById(R.id.recyclerViewAPI)
             val adapter = RvAdapter(data)
             recyclerView.adapter = adapter
             recyclerView.layoutManager = LinearLayoutManager(this@RvActivity)
