@@ -1,5 +1,6 @@
 package ru.zhiev.withopenapi
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,8 +8,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import ru.zhiev.withopenapi.data.CountriesModel
 
-class RvAdapter(private val dataSet: List<String>) :
+class RvAdapter(private val dataSet: List<CountriesModel>) :
     RecyclerView.Adapter<RvAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
@@ -17,10 +19,11 @@ class RvAdapter(private val dataSet: List<String>) :
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        val parts = dataSet[position].split(":::")
-        val name = parts[0]
-        val flagUrl = parts[1]
+        val name = dataSet[position].name.common
+        val flagUrl = dataSet[position].flags.png
 
+        Log.d("flagURL", flagUrl)
+        Log.d("naming", name)
         viewHolder.textView.text = name
         Glide.with(viewHolder.imageView)
             .load(flagUrl)
